@@ -50,19 +50,13 @@ body {
 	background: #08B2E3;
 }
 
-.embedded-content {
+#embedded-content-container {
 	flex: 1 1 auto;
-	padding-top: 40px;
+	padding-top: 32px;
 }
-
-.embedded-content > div  {
-	display: none;
-}
-
-.embedded-content > .active {
+#embedded-content {
 	display: block;
-	max-width: 570px;
-	width: 100%;
 	margin: 0 auto;
+	max-width: 578px;
+	width: 100%;
 }
-

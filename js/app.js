@@ -1,27 +1,21 @@
 const EMBEDDED_CONTENT_CONTAINER = '#embedded-content';
-const TEST_EMBED = '#test-embed';
+const NAV_ELEMENT = '.navigation a';
 
-function getExternalHtml() {
-	$.get('embedAccount.html', function(data) {
-		$(EMBEDDED_CONTENT_CONTAINER).html(data);
-	});
-}
+const embedItems = [
+	'embedZype.html', 
+	'embedYoutube.html',
+	'embedPlaylist.html',
+	'embedAccount.html'
+];
 
-function displayExternalHtml(data) {
-	$(TEST_EMBED).html(data);
-}
-
-function assignEventHandlers() {
-	$('.navigation a').on('click', handleNavBtnClicked);
-}
-
+// handleNavBtnClicked
 function handleNavBtnClicked() {
 	console.log('btn clicked');
 
-	// get index of item
+	// get index of item clicked
 	const navIndex = $(this).closest('li').index();
 
-	// remove all instances of active class
+	// remove all instances of 'active' class
 	removeActiveClass();
 
 	// add active class to nav item
@@ -29,21 +23,34 @@ function handleNavBtnClicked() {
 
 	// add active class to embed content
 	// activateContent(navIndex);
+
+	// clear currently embedded content
+	$(EMBEDDED_CONTENT_CONTAINER).empty();
+
+	// add selected embed content
+	loadEmbedContent(navIndex);
 }
 
-
-function activateContent(index) {
-	$(EMBEDDED_CONTENT_CONTAINER).find(`.embed:eq(${index})`).addClass('active');
-}
-
+// removeActiveClass
 function removeActiveClass() {
 	$('.active').removeClass('active');
+}
+
+// getEmbedContent
+// get embed content based on index of nav item clicked
+function loadEmbedContent(index) {
+	$(EMBEDDED_CONTENT_CONTAINER).attr('src', embedItems[index]);
+}
+
+// assignEventHandlers
+function assignEventHandlers() {
+	$(NAV_ELEMENT).on('click', handleNavBtnClicked);
 }
 
 function runApp() {
 	console.log('app is running');
 	assignEventHandlers();
-	getExternalHtml();
+	loadEmbedContent(0);
 }
 
 $(runApp());
