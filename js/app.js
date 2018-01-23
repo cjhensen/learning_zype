@@ -1,4 +1,15 @@
 const EMBEDDED_CONTENT_CONTAINER = '.embedded-content';
+const TEST_EMBED = '#test-embed';
+
+function getExternalHtml() {
+	$.get('embedAccount.html', function(data) {
+		$(TEST_EMBED).html(data);
+	});
+}
+
+function displayExternalHtml(data) {
+	$(TEST_EMBED).html(data);
+}
 
 function assignEventHandlers() {
 	$('.navigation a').on('click', handleNavBtnClicked);
@@ -32,6 +43,7 @@ function removeActiveClass() {
 function runApp() {
 	console.log('app is running');
 	assignEventHandlers();
+	getExternalHtml();
 }
 
 $(runApp());
