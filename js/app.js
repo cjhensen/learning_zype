@@ -1,9 +1,9 @@
-const EMBEDDED_CONTENT_CONTAINER = '.embedded-content';
+const EMBEDDED_CONTENT_CONTAINER = '#embedded-content';
 const TEST_EMBED = '#test-embed';
 
 function getExternalHtml() {
 	$.get('embedAccount.html', function(data) {
-		$(TEST_EMBED).html(data);
+		$(EMBEDDED_CONTENT_CONTAINER).html(data);
 	});
 }
 
@@ -28,7 +28,7 @@ function handleNavBtnClicked() {
 	$(this).addClass('active');
 
 	// add active class to embed content
-	activateContent(navIndex);
+	// activateContent(navIndex);
 }
 
 
