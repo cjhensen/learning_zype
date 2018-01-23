@@ -53,6 +53,7 @@ body {
 #embedded-content-container {
 	flex: 1 1 auto;
 	padding-top: 32px;
+	overflow: scroll;
 }
 #embedded-content {
 	display: block;
