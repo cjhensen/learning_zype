@@ -49,13 +49,12 @@ body {
 .navigation .active {
 	background: #08B2E3;
 }
-
+.ad-testing,
 #embedded-content-container {
 	flex: 1 1 auto;
 	padding-top: 32px;
 	overflow: scroll;
 }
-.ad-testing,
 #embedded-content {
 	display: block;
 	margin: 0 auto;
