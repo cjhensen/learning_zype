@@ -55,6 +55,7 @@ body {
 	padding-top: 32px;
 	overflow: scroll;
 }
+.ad-testing,
 #embedded-content {
 	display: block;
 	margin: 0 auto;
